@@ -28,6 +28,15 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-2 offset-10">
+            <a href="{{route('comics.edit', $comic->id)}}">
+                <div class="btn btn-sm btn-primary">
+                    Modifica
+                </div>
+            </a>
+        </div>.
+    </div>
     <div class="bg-lightgrey pt-5">
         <div class="container">
             <div class="row mb-5">
