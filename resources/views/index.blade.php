@@ -7,6 +7,15 @@
     </div>
     <div class="bg-dark">
         <div class="container">
+            <div class="row pt-5">
+                <div class="col-2 offset-10">
+                    <a href="{{route('comics.create')}}">
+                        <div class="btn btn-sm btn-primary">
+                            Crea un nuovo fumetto
+                        </div>
+                    </a>
+                </div>
+            </div>
             <div class="row py-5">
                 @foreach ($comics as $comic)
                 <div class="col-2">

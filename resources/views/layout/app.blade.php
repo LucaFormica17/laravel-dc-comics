@@ -21,6 +21,7 @@
         <main>
             @yield('content')
             @yield('content-details')
+            @yield('create')
         </main>
         @include('partials/footer')
     </body>
