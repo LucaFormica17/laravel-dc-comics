@@ -10,7 +10,7 @@
             <div class="row py-5">
                 @foreach ($comics as $comic)
                 <div class="col-2">
-                    <a {{-- href="{{route('homepage', ['param' => $comic['id']])}}" --}}>
+                    <a href="{{route('comics.show', $comic->id)}}">
                         <div class="square-img">
                             <img src="{{$comic['thumb']}}" alt="{{$comic['title']}}">
                             <span class="text-white"> 
