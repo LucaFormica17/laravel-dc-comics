@@ -16,7 +16,6 @@ class Comic extends Model
         'price',
         'series',
         'sale_date',
-        'type'// Aggiungi _token al fillable
-        // Aggiungi altri campi se necessario
+        'type'
     ];
 }

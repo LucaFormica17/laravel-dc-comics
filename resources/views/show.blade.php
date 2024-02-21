@@ -29,13 +29,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-2 offset-10">
+        <div class="col-2 offset-8">
             <a href="{{route('comics.edit', $comic->id)}}">
                 <div class="btn btn-sm btn-primary">
                     Modifica
                 </div>
             </a>
-        </div>.
+
+        </div>
+        <div class="col-2">
+            <form action="{{route('comics.destroy', $comic->id)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm btn-danger">Elimina</button>
+            </form>
+        </div>
     </div>
     <div class="bg-lightgrey pt-5">
         <div class="container">
