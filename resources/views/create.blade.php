@@ -4,6 +4,19 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-12">
+                <div class="form-container">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="list-unstyled">
+                                @foreach ($errors as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
+            </div>
             <div class="col-8 offset-2">
                 <div class="card">
                     <div class="card-title">

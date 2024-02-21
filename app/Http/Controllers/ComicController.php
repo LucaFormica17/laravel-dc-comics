@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 
 
 class ComicController extends Controller
@@ -38,7 +38,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $this->validation($request->all());
 
         $new_comic = new Comic();
 
@@ -81,7 +81,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $data = $request->all();
+        $data = $this->validation($request->all());
 
         $comic->update($data);
 
@@ -102,4 +102,35 @@ class ComicController extends Controller
 
         return redirect()->route('comics.index');
     }
+
+    private function validation($data){
+
+        $validator = Validator::make(
+            $data,
+            [
+                'title' => 'required|max:50|min:5',
+                'thumb' => 'required',
+                'price' => 'required|max:10',
+                'series' => 'required|min:5',
+                'sale_date' => 'required|date',
+                'type' => 'required'
+            ],
+            [
+                'title.required' => 'Campo obbligatorio',
+                'title.max' => 'Massimo 50 caratteri',
+                'title.min' => 'Minimo 5 caratteri',
+                'thumb.required' => 'Campo obbligatorio',
+                'price.required' => 'Campo obbligatorio',
+                'price.max' => 'Massimo 10 caratteri',
+                'series.required' => 'Campo obbligatorio',
+                'series.min' => 'Minimo 5 caratteri',
+                'sale_date.required' => 'Campo obbligatorio',
+                'sale_date.date' => 'Inserisci una data valida',
+                'type.required' => 'Campo obbligatorio',
+                
+            ]
+            )->validate();
+            
+            return $validator;
+        }
 }
