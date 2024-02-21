@@ -9,7 +9,7 @@
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul class="list-unstyled">
-                                @foreach ($errors as $error)
+                                @foreach ($errors->all() as $error)
                                     <li>{{$error}}</li>
                                 @endforeach
                             </ul>
@@ -30,6 +30,11 @@
                                     <label for="title">Titolo</label>
                                     <input type="text" class="form-control" name="title" id="title">
                                 </div>
+                                @error('title')
+                                    <div class="alert alert-danger">
+                                        {{$message}}
+                                    </div>
+                                @enderror
                                 <div class="input-group mb-3">
                                     <label for="description">Descrizione</label>
                                     <textarea name="description" id="description" cols="30" rows="10"></textarea>
